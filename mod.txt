@@ -5,3 +5,6 @@ version="0.1.1"
 
 [autoload]
 WeaponAmmoSpawner="res://wwacp/Main.gd"
+
+[updates]
+modworkshop=55979
