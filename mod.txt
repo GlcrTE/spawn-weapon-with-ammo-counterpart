@@ -1,7 +1,10 @@
 [mod]
 name="Spawn Weapon with Ammo"
 id="weapon-ammo-spawner"
-version="0.1.0"
+version="0.2.0"
 
 [autoload]
 WeaponAmmoSpawner="res://wwacp/Main.gd"
+
+[updates]
+modworkshop=55979
