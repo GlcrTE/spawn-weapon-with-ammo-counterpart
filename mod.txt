@@ -1,10 +1,10 @@
 [mod]
-name="Weapons spawn with mag and ammo"
-id="wwacp"
-version="0.2.0"
+name="Weapons Spawn with Mag and Ammo"
+id="wswmaa"
+version="0.3.0"
 
 [autoload]
-WeaponAmmoSpawner="res://wwacp/Main.gd"
+WeaponAmmoSpawner="res://mods/scripts/Main.gd"
 
 [updates]
 modworkshop=55979
