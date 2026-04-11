@@ -2,6 +2,7 @@
 name="Weapons Spawn with Mag and Ammo"
 id="wswmaa"
 version="1.0.0"
+priority=-1
 
 [autoload]
 WeaponAmmoSpawnerConfig="res://mods/scripts/Config.gd"
