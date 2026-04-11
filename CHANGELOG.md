@@ -1,5 +1,8 @@
 # Weapons Spawn with Mag and Ammo — Changelog
 
+### v1.0.1
+moved the loadorder priority to -1. It seems the mod works fine most of the time when it's loaded first.
+
 ### v1.0.0
 Added MCM Integration
 
