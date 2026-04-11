@@ -2,7 +2,7 @@ Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 $modRoot = $PSScriptRoot
-$modName = "spawn-weapon-with-ammo-counterpart"
+$modName = "Spawn-Weapons-With-Mag-And-Ammo"
 $modsDir = "D:\Games\SteamLibrary\steamapps\common\Road to Vostok\mods"
 $vmzPath = "$modRoot\$modName.vmz"
 
