@@ -30,9 +30,12 @@ Add-File $zip "CHANGELOG.md"                   "$modRoot\CHANGELOG.md"
 Add-File $zip "mod.txt"                        "$modRoot\mod.txt"
 Add-Dir  $zip "mods/"
 Add-Dir  $zip "mods/scripts/"
+Add-File $zip "mods/scripts/Config.gd"          "$modRoot\mods\scripts\Config.gd"
 Add-File $zip "mods/scripts/LootContainer.gd"  "$modRoot\mods\scripts\LootContainer.gd"
 Add-File $zip "mods/scripts/LootSimulation.gd" "$modRoot\mods\scripts\LootSimulation.gd"
 Add-File $zip "mods/scripts/Main.gd"           "$modRoot\mods\scripts\Main.gd"
+Add-File $zip "mods/scripts/ModSettings.gd"    "$modRoot\mods\scripts\ModSettings.gd"
+Add-File $zip "mods/scripts/ModSettings.tres"  "$modRoot\mods\scripts\ModSettings.tres"
 Add-File $zip "README.md"                      "$modRoot\README.md"
 
 $zip.Dispose()

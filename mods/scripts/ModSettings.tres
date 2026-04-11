@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponAmmoSpawnerSettings" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://mods/scripts/ModSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+spawn_ammo = true
+spawn_mag = true
+use_custom_amounts = true
+ammo_min = 1
+ammo_max = 5
+mag_ammo_min = 0
+mag_ammo_max = 5
+joker_debug = false

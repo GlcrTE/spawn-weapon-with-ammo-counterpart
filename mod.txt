@@ -4,6 +4,7 @@ id="wswmaa"
 version="0.3.0"
 
 [autoload]
+WeaponAmmoSpawnerConfig="res://mods/scripts/Config.gd"
 WeaponAmmoSpawner="res://mods/scripts/Main.gd"
 
 [updates]
