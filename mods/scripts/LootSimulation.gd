@@ -2,6 +2,12 @@ extends "res://Scripts/LootSimulation.gd"
 
 const SPAWN_MAG = 1
 
+const AMMO_AMOUNT_DEFAULT = false  # true = game default amounts, false = use ranges below
+const AMMO_MIN = 1                 # min loose ammo per stack (0-50)
+const AMMO_MAX = 20                # max loose ammo per stack (0-50)
+const MAG_AMMO_MIN = 1             # min ammo inside spawned magazine (0-50)
+const MAG_AMMO_MAX = 20            # max ammo inside spawned magazine (0-50), capped at magazine capacity
+
 # After the vanilla SpawnItems runs, spawn ammo and magazine for every weapon that was placed.
 func SpawnItems():
 	var children_before = get_children()
@@ -35,8 +41,11 @@ func SpawnItems():
 		ammoPickup.linear_velocity = Vector3.ZERO
 		var newSlotData = SlotData.new()
 		newSlotData.itemData = ammoItem
-		if ammoItem.defaultAmount != 0:
-			newSlotData.amount = randi_range(1, ammoItem.defaultAmount)
+		if AMMO_AMOUNT_DEFAULT:
+			if ammoItem.defaultAmount != 0:
+				newSlotData.amount = randi_range(1, ammoItem.defaultAmount)
+		else:
+			newSlotData.amount = randi_range(AMMO_MIN, AMMO_MAX)
 		if Simulation.season == 2 and ammoItem.freezable:
 			if randi_range(0, 100) < 10:
 				newSlotData.state = "Frozen"
@@ -58,5 +67,10 @@ func SpawnItems():
 				magPickup.linear_velocity = Vector3.ZERO
 				var magSlotData = SlotData.new()
 				magSlotData.itemData = compatible_item
+				if AMMO_AMOUNT_DEFAULT:
+					if compatible_item.defaultAmount != 0:
+						magSlotData.amount = randi_range(1, compatible_item.defaultAmount)
+				else:
+					magSlotData.amount = min(randi_range(MAG_AMMO_MIN, MAG_AMMO_MAX), weaponData.magazineSize)
 				magPickup.slotData = magSlotData
 				break
