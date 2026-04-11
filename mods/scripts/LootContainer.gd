@@ -1,6 +1,13 @@
 extends "res://Scripts/LootContainer.gd"
 
 const SPAWN_MAG = 1
+const JOKER = 0
+
+func _ready():
+	if JOKER == 1:
+		joker = true
+	super()
+
 # After adding a weapon to the container loot, also add its matching ammo and magazine.
 func CreateLoot(item: ItemData):
 	super(item)
