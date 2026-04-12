@@ -5,8 +5,8 @@ version="1.0.1"
 priority=-1
 
 [autoload]
-WeaponAmmoSpawnerConfig="res://mods/scripts/Config.gd"
-WeaponAmmoSpawner="res://mods/scripts/Main.gd"
+WeaponAmmoSpawnerConfig="res://mods/wswmaa/Config.gd"
+WeaponAmmoSpawner="res://mods/wswmaa/Main.gd"
 
 [updates]
 modworkshop=55979

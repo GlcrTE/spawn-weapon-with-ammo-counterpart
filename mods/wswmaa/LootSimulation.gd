@@ -1,6 +1,6 @@
 extends "res://Scripts/LootSimulation.gd"
 
-var modSettings = preload("res://mods/scripts/ModSettings.tres")
+var modSettings = preload("res://mods/wswmaa/ModSettings.tres")
 
 # After the vanilla SpawnItems runs, spawn ammo and magazine for every weapon that was placed.
 func SpawnItems():

@@ -1,6 +1,6 @@
 extends Node
 
-var modSettings = preload("res://mods/scripts/ModSettings.tres")
+var modSettings = preload("res://mods/wswmaa/ModSettings.tres")
 var McmHelpers = load("res://ModConfigurationMenu/Scripts/Doink Oink/MCM_Helpers.tres")
 
 const FILE_PATH = "user://MCM/WeaponAmmoSpawner"

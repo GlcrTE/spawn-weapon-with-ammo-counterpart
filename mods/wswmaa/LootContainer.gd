@@ -1,6 +1,6 @@
 extends "res://Scripts/LootContainer.gd"
 
-var modSettings = preload("res://mods/scripts/ModSettings.tres")
+var modSettings = preload("res://mods/wswmaa/ModSettings.tres")
 
 func _ready():
 	if modSettings.joker_debug:

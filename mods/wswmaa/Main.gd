@@ -1,8 +1,8 @@
 extends Node
 
 func _ready():
-	overrideScript("res://mods/scripts/LootSimulation.gd")
-	overrideScript("res://mods/scripts/LootContainer.gd")
+	overrideScript("res://mods/wswmaa/LootSimulation.gd")
+	overrideScript("res://mods/wswmaa/LootContainer.gd")
 	queue_free()
 
 func overrideScript(overrideScriptPath: String):

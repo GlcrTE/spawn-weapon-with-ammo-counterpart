@@ -2,7 +2,7 @@ Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 $modRoot = $PSScriptRoot
-$modName = "Spawn-Weapons-With-Mag-And-Ammo"
+$modName = "Weapons-Spawn-with-Mag-and-Ammo"
 $modsDir = "D:\Games\SteamLibrary\steamapps\common\Road to Vostok\mods"
 $vmzPath = "$modRoot\$modName.vmz"
 
@@ -29,13 +29,13 @@ function Add-File($zip, $entryName, $filePath) {
 Add-File $zip "CHANGELOG.md"                   "$modRoot\CHANGELOG.md"
 Add-File $zip "mod.txt"                        "$modRoot\mod.txt"
 Add-Dir  $zip "mods/"
-Add-Dir  $zip "mods/scripts/"
-Add-File $zip "mods/scripts/Config.gd"          "$modRoot\mods\scripts\Config.gd"
-Add-File $zip "mods/scripts/LootContainer.gd"  "$modRoot\mods\scripts\LootContainer.gd"
-Add-File $zip "mods/scripts/LootSimulation.gd" "$modRoot\mods\scripts\LootSimulation.gd"
-Add-File $zip "mods/scripts/Main.gd"           "$modRoot\mods\scripts\Main.gd"
-Add-File $zip "mods/scripts/ModSettings.gd"    "$modRoot\mods\scripts\ModSettings.gd"
-Add-File $zip "mods/scripts/ModSettings.tres"  "$modRoot\mods\scripts\ModSettings.tres"
+Add-Dir  $zip "mods/wswmaa/"
+Add-File $zip "mods/wswmaa/Config.gd"          "$modRoot\mods\wswmaa\Config.gd"
+Add-File $zip "mods/wswmaa/LootContainer.gd"   "$modRoot\mods\wswmaa\LootContainer.gd"
+Add-File $zip "mods/wswmaa/LootSimulation.gd"  "$modRoot\mods\wswmaa\LootSimulation.gd"
+Add-File $zip "mods/wswmaa/Main.gd"            "$modRoot\mods\wswmaa\Main.gd"
+Add-File $zip "mods/wswmaa/ModSettings.gd"     "$modRoot\mods\wswmaa\ModSettings.gd"
+Add-File $zip "mods/wswmaa/ModSettings.tres"   "$modRoot\mods\wswmaa\ModSettings.tres"
 Add-File $zip "README.md"                      "$modRoot\README.md"
 
 $zip.Dispose()
