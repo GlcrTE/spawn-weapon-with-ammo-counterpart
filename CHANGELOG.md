@@ -1,5 +1,8 @@
 # Weapons Spawn with Mag and Ammo — Changelog
 
+### v1.1.0
+fixed folder naming because it broke everything when conditions met
+
 ### v1.0.1
 moved the loadorder priority to -1. It seems the mod works fine most of the time when it's loaded first.
 
