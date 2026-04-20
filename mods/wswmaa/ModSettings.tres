@@ -6,6 +6,9 @@
 script = ExtResource("1")
 spawn_ammo = true
 spawn_mag = true
+random_spawn = false
+ammo_chance = 50
+mag_chance = 50
 use_custom_amounts = true
 ammo_min = 1
 ammo_max = 5

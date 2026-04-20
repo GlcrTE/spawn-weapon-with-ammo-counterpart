@@ -28,12 +28,40 @@ func _ready() -> void:
 		"menu_pos" = 2
 	})
 
+	config.set_value("Bool", "random_spawn", {
+		"name" = "Randomize Spawns",
+		"tooltip" = "When enabled, each enabled item (ammo and magazine) has a random chance to spawn instead of always spawning. Chance is controlled by the sliders below.",
+		"default" = false,
+		"value" = false,
+		"menu_pos" = 3
+	})
+
+	config.set_value("Int", "ammo_chance", {
+		"name" = "Ammo Spawn Chance (%)",
+		"tooltip" = "Percentage chance that loose ammo spawns with the weapon. Only applies when Randomize Spawns and Spawn Ammo are both enabled.",
+		"default" = 50,
+		"value" = 50,
+		"menu_pos" = 4,
+		"minRange" = 0,
+		"maxRange" = 100
+	})
+
+	config.set_value("Int", "mag_chance", {
+		"name" = "Magazine Spawn Chance (%)",
+		"tooltip" = "Percentage chance that a magazine spawns with the weapon. Only applies when Randomize Spawns and Spawn Magazine are both enabled.",
+		"default" = 50,
+		"value" = 50,
+		"menu_pos" = 5,
+		"minRange" = 0,
+		"maxRange" = 100
+	})
+
 	config.set_value("Bool", "use_custom_amounts", {
 		"name" = "Use Custom Ammo Amounts",
 		"tooltip" = "When enabled, ammo and magazine fill amounts are controlled by the min/max ranges below. When disabled, the game's default amounts are used instead.",
 		"default" = true,
 		"value" = true,
-		"menu_pos" = 3
+		"menu_pos" = 6
 	})
 
 	config.set_value("Int", "ammo_min", {
@@ -41,7 +69,7 @@ func _ready() -> void:
 		"tooltip" = "Minimum number of loose ammo rounds spawned per stack. Only applies when Use Custom Ammo Amounts is enabled.",
 		"default" = 1,
 		"value" = 1,
-		"menu_pos" = 4,
+		"menu_pos" = 7,
 		"minRange" = 1,
 		"maxRange" = 50
 	})
@@ -51,7 +79,7 @@ func _ready() -> void:
 		"tooltip" = "Maximum number of loose ammo rounds spawned per stack. Only applies when Use Custom Ammo Amounts is enabled.",
 		"default" = 5,
 		"value" = 5,
-		"menu_pos" = 5,
+		"menu_pos" = 8,
 		"minRange" = 1,
 		"maxRange" = 50
 	})
@@ -61,7 +89,7 @@ func _ready() -> void:
 		"tooltip" = "Minimum number of rounds loaded into a spawned magazine. Only applies when Use Custom Ammo Amounts is enabled.",
 		"default" = 0,
 		"value" = 0,
-		"menu_pos" = 6,
+		"menu_pos" = 9,
 		"minRange" = 0,
 		"maxRange" = 50
 	})
@@ -71,7 +99,7 @@ func _ready() -> void:
 		"tooltip" = "Maximum number of rounds loaded into a spawned magazine, capped at the weapon's magazine capacity. Only applies when Use Custom Ammo Amounts is enabled.",
 		"default" = 5,
 		"value" = 5,
-		"menu_pos" = 7,
+		"menu_pos" = 10,
 		"minRange" = 0,
 		"maxRange" = 50
 	})
@@ -81,7 +109,7 @@ func _ready() -> void:
 		"tooltip" = "Enables the Joker debug flag on LootContainers. Intended for development and testing only.",
 		"default" = false,
 		"value" = false,
-		"menu_pos" = 8
+		"menu_pos" = 11
 	})
 
 	if !FileAccess.file_exists(FILE_PATH + "/config.ini"):
@@ -108,6 +136,9 @@ func _ready() -> void:
 func _on_config_updated(config: ConfigFile) -> void:
 	modSettings.spawn_ammo = config.get_value("Bool", "spawn_ammo")["value"]
 	modSettings.spawn_mag = config.get_value("Bool", "spawn_mag")["value"]
+	modSettings.random_spawn = config.get_value("Bool", "random_spawn")["value"]
+	modSettings.ammo_chance = config.get_value("Int", "ammo_chance")["value"]
+	modSettings.mag_chance = config.get_value("Int", "mag_chance")["value"]
 	modSettings.use_custom_amounts = config.get_value("Bool", "use_custom_amounts")["value"]
 	modSettings.ammo_min = config.get_value("Int", "ammo_min")["value"]
 	modSettings.ammo_max = config.get_value("Int", "ammo_max")["value"]

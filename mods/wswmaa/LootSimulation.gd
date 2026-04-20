@@ -25,7 +25,10 @@ func SpawnItems():
 		if weaponData == null or weaponData.ammo == null:
 			continue
 
-		if modSettings.spawn_ammo:
+		var spawn_ammo = modSettings.spawn_ammo and (not modSettings.random_spawn or randi_range(1, 100) <= modSettings.ammo_chance)
+		var spawn_mag = modSettings.spawn_mag and (not modSettings.random_spawn or randi_range(1, 100) <= modSettings.mag_chance)
+
+		if spawn_ammo:
 			var ammoItem: ItemData = weaponData.ammo
 			if ammoItem.file == "":
 				continue
@@ -50,7 +53,7 @@ func SpawnItems():
 					newSlotData.state = "Frozen"
 			ammoPickup.slotData = newSlotData
 
-		if not modSettings.spawn_mag:
+		if not spawn_mag:
 			continue
 		for compatible_item in weaponData.compatible:
 			if compatible_item.subtype == "Magazine":
