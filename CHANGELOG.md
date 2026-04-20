@@ -1,5 +1,8 @@
 # Weapons Spawn with Mag and Ammo — Changelog
 
+### v1.2.0
+added a randomizer to mod functionality
+
 ### v1.1.0
 fixed folder naming because it broke everything when conditions met
 
