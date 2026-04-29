@@ -1,5 +1,8 @@
 # Weapons Spawn with Mag and Ammo — Changelog
 
+### v1.2.1
+fixed a bug where a magazin could be spawned in a weapon that has already a mag attached
+
 ### v1.2.0
 added a randomizer to mod functionality
 

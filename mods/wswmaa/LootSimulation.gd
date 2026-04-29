@@ -15,6 +15,14 @@ func SpawnItems():
 			child.position = Vector3(randf_range(-1.0, 1.0), 0.1, randf_range(-1.0, 1.0))
 			child.linear_velocity = Vector3.ZERO
 
+	# Build a lookup from ItemData to its spawned pickup so we can inspect nested slots.
+	var spawned_weapon_pickups: Dictionary = {}
+	for child in get_children():
+		if child in children_before:
+			continue
+		if child is RigidBody3D and child.slotData != null and child.slotData.itemData != null:
+			spawned_weapon_pickups[child.slotData.itemData] = child
+
 	if not modSettings.spawn_ammo and not modSettings.spawn_mag:
 		return
 
@@ -27,6 +35,15 @@ func SpawnItems():
 
 		var spawn_ammo = modSettings.spawn_ammo and (not modSettings.random_spawn or randi_range(1, 100) <= modSettings.ammo_chance)
 		var spawn_mag = modSettings.spawn_mag and (not modSettings.random_spawn or randi_range(1, 100) <= modSettings.mag_chance)
+
+		# Skip magazine if the weapon pickup already has one attached (e.g. AI weapon).
+		if spawn_mag:
+			var weapon_pickup = spawned_weapon_pickups.get(itemData)
+			if weapon_pickup != null and weapon_pickup.slotData != null:
+				for nested_item in weapon_pickup.slotData.nested:
+					if nested_item is ItemData and nested_item.subtype == "Magazine":
+						spawn_mag = false
+						break
 
 		if spawn_ammo:
 			var ammoItem: ItemData = weaponData.ammo
